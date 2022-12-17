@@ -1,7 +1,20 @@
 <template>
-  <b-card header="Login" class="shadow-sm">
+  <b-card header="Register" class="shadow-sm">
     <b-form @submit.prevent="submit">
       <b-alert variant="danger" :show="!!danger">{{ danger }}</b-alert>
+      <b-form-group
+        label="Your name:"
+        label-for="name"
+        :invalid-feedback="errors?.name"
+      >
+        <b-form-input
+          id="name"
+          v-model="form.name"
+          type="text"
+          placeholder="Enter name"
+          :state="errors?.name ? false : null"
+        />
+      </b-form-group>
       <b-form-group
         label="Email address:"
         label-for="email"
@@ -30,27 +43,21 @@
       </b-form-group>
 
       <b-button type="submit" variant="primary" block :disabled="loading">
-        <b-spinner small v-if="loading" /> Masuk
+        <b-spinner small v-if="loading" /> Daftar
       </b-button>
-      <b-button to="/register" variant="light" block> Register </b-button>
-      <hr />
-      <div class="text-center">
-        <b-button to="/password/forgot" variant="link">
-          Lupa password?
-        </b-button>
-      </div>
+      <b-button to="/login" variant="light" block>Login</b-button>
     </b-form>
   </b-card>
 </template>
 
 <script>
 export default {
-  name: 'LoginPage',
+  name: 'RegisterPage',
   layout: 'auth',
   middleware: ['guest'],
   head() {
     return {
-      title: 'Login',
+      title: 'Register',
     }
   },
   data() {
@@ -59,16 +66,11 @@ export default {
       errors: null,
       loading: false,
       form: {
+        name: '',
         email: '',
         password: '',
       },
     }
-  },
-  mounted() {
-    if (this.$route.query.reset)
-      this.$sw('Sukses', `Password telah diupdate. Silahkan login.`, 'success')
-    if (this.$route.query.register)
-      this.$sw('Sukses', `Berhasil membuat akun. Silahkan login.`, 'success')
   },
   methods: {
     async submit() {
@@ -76,9 +78,8 @@ export default {
       this.errors = null
       this.danger = ''
       try {
-        const token = await this.$axios.$post('/auth/login', this.form)
-        this.$store.commit('setToken', token)
-        window.location = '/'
+        await this.$axios.$post('/auth/register', this.form)
+        this.$router.push('/login?register=1')
       } catch (e) {
         const { errors } = this.$errorResponse(e)
         this.errors = errors

@@ -10,7 +10,7 @@
       {{ formatDate(item.createdAt) }}
     </template>
     <template #cell(action)="{ item }">
-      <b-button variant="primary" size="sm" :to="'/albums/' + item.id">
+      <b-button variant="primary" size="sm" :to="'/show/' + item.id">
         Lihat
       </b-button>
     </template>
@@ -19,11 +19,9 @@
 
 <script>
 import moment from 'moment'
-import prettyBytes from 'pretty-bytes'
-import copy from 'copy-to-clipboard'
 
 export default {
-  name: 'TabelAlbum',
+  name: 'BlockAppAlbumTabel',
   props: {
     albums: {
       type: Array,
@@ -43,23 +41,9 @@ export default {
     }
   },
   methods: {
-    prettyBytes(b) {
-      return prettyBytes(b)
-    },
-    copy(token) {
-      const url = `${this.$config.baseUrl}/share/${token}`
-      this.$bvToast.toast(`Link: ${url}`, {
-        variant: 'success',
-        title: 'Link Berhasil dicopy',
-      })
-      return copy(url)
-    },
     formatDate(time) {
       moment.locale('id')
       return moment(time).fromNow()
-    },
-    isExpired(time) {
-      return time && moment().isAfter(moment(time))
     },
   },
 }

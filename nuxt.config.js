@@ -3,12 +3,12 @@ export default {
   target: 'static',
 
   publicRuntimeConfig: {
-    baseApiUrl: process.env.BASE_API_URL || 'https://kkl.herokuapp.com',
+    baseApiUrl: process.env.BASE_API_URL || 'https://kkl.dedeard.my.id',
     baseUrl: process.env.BASE_URL || 'https://kkldinkes.netlify.app',
   },
 
   head: {
-    title: 'frontend',
+    title: 'Arsip Media',
     htmlAttrs: {
       lang: 'en',
     },
@@ -19,6 +19,11 @@ export default {
       { name: 'format-detection', content: 'telephone=no' },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+  },
+
+  loading: {
+    color: '#007bff',
+    height: '3px',
   },
 
   css: ['@/assets/css/main.css', 'sweetalert2/dist/sweetalert2.min.css'],
@@ -42,7 +47,7 @@ export default {
   ],
 
   axios: {
-    baseURL: process.env.BASE_API_URL || 'https://kkl.herokuapp.com',
+    baseURL: process.env.BASE_API_URL || 'https://kkl.dedeard.my.id',
   },
 
   build: {},

@@ -29,5 +29,10 @@ export default {
       albums,
     }
   },
+  methods: {
+    onAlbumCreated(album) {
+      this.albums = [...this.albums, album]
+    },
+  },
 }
 </script>

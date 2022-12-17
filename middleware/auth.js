@@ -2,6 +2,9 @@ export default function ({ store, redirect, route, error }) {
   if (!store.state.token || !store.state.user) return redirect('/login')
 
   const meta = route.meta[0]
+
+  if (meta?.admin && !store.getters.role) return error('Not allowed!')
+
   if (meta?.can) {
     const { role, permissions } = store.getters
     if (role?.name !== 'Super Admin') {

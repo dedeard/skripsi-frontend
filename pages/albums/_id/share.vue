@@ -12,7 +12,7 @@
       :fields="[
         { key: 'title', label: 'Judul' },
         { key: 'expiredAt', label: 'Kadaluarsa pada' },
-        { key: 'action', label: 'Aksi', class: 'text-center width-170' },
+        { key: 'action', label: 'Aksi', class: 'text-center width-230' },
       ]"
       :items="album.share"
     >
@@ -27,6 +27,9 @@
         </span>
       </template>
       <template #cell(action)="{ item }">
+        <b-button variant="primary" size="sm" :to="`/share/${item.token}`"
+          >Open</b-button
+        >
         <b-button variant="primary" size="sm" @click.prevent="copy(item.token)"
           >Copy Link</b-button
         >
