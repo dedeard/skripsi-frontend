@@ -33,7 +33,7 @@
             @onUpdated="onUserUpdated"
           />
           <modal-user-albums
-            v-if="$can('Update User')"
+            v-if="$can('Manage User Album')"
             class="d-inline-block"
             :uid="item.id"
             :albums="albums"

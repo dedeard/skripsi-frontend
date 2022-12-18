@@ -37,6 +37,12 @@
         <div class="p-3">
           <b-nav vertical pills>
             <b-nav-item
+              to="/"
+              exact-active-class="active"
+              class="font-weight-bold pr-0"
+              >Home</b-nav-item
+            >
+            <b-nav-item
               v-if="$store.getters.role"
               to="/dashboard"
               active-class="active"
