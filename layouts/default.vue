@@ -1,5 +1,5 @@
 <template>
-  <main class="bg-light">
+  <main class="bg-secondary">
     <header class="d-flex position-fixed w-100 bg-white shadow-sm px-3">
       <div class="d-flex w-100 my-auto">
         <nuxt-link to="/" class="d-flex text-dark text-decoration-none">
@@ -24,8 +24,8 @@
     <aside class="bg-white shadow-sm position-fixed">
       <div class="w-full aside-wrapper py-3">
         <div class="px-3 text-center">
-          <div class="p-3 border rounded bg-light">
-            <div class="font-weight-bold lead text-capitalize">
+          <div class="p-3 border rounded bg-secondary">
+            <div class="font-weight-bold lead m-0 text-capitalize">
               {{ $store.state.user.name }}
             </div>
             <div class="text-muted small">{{ $store.state.user.email }}</div>
@@ -40,28 +40,28 @@
               v-if="$store.getters.role"
               to="/dashboard"
               active-class="active"
-              class="font-weight-bold"
+              class="font-weight-bold pr-0"
               >Dasbor</b-nav-item
             >
             <b-nav-item
               v-if="$can('Read Role|Create Role|Update Role|Delete Role')"
               to="/roles"
               active-class="active"
-              class="font-weight-bold"
+              class="font-weight-bold pr-0"
               >Peran</b-nav-item
             >
             <b-nav-item
               v-if="$can('Read User|Create User|Update User|Delete User')"
               to="/users"
               active-class="active"
-              class="font-weight-bold"
+              class="font-weight-bold pr-0"
               >Users</b-nav-item
             >
             <b-nav-item
               v-if="$can('Read Album|Create Album|Update Album|Delete Album')"
               to="/albums"
               active-class="active"
-              class="font-weight-bold"
+              class="font-weight-bold pr-0"
               >Album</b-nav-item
             >
           </b-nav>

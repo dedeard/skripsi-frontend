@@ -1,6 +1,6 @@
 <template>
   <div :class="{ 'border-danger': error }">
-    <div class="position-relative border bg-light py-5 px-4">
+    <div class="position-relative border bg-secondary py-5 px-4">
       <div class="text-center">
         {{
           loading

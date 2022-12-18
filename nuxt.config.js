@@ -3,8 +3,8 @@ export default {
   target: 'static',
 
   publicRuntimeConfig: {
-    baseApiUrl: process.env.BASE_API_URL || 'https://kkl.dedeard.my.id',
-    baseUrl: process.env.BASE_URL || 'https://kkldinkes.netlify.app',
+    baseApiUrl: process.env.BASE_API_URL || 'http://localhost:5000',
+    baseUrl: process.env.BASE_URL || 'http://localhost:3000',
   },
 
   head: {
@@ -22,11 +22,15 @@ export default {
   },
 
   loading: {
-    color: '#007bff',
+    color: '#5e72e4',
     height: '3px',
   },
 
-  css: ['@/assets/css/main.css', 'sweetalert2/dist/sweetalert2.min.css'],
+  css: [
+    '@/assets/css/main.css',
+    '@/assets/css/argon-design-system.css',
+    'sweetalert2/dist/sweetalert2.min.css',
+  ],
 
   plugins: [
     { src: '~/plugins/errorResponse.js', ssr: true },
@@ -45,9 +49,15 @@ export default {
     'nuxt-client-init-module',
     'nuxt-route-meta',
   ],
+  
+  bootstrapVue: {
+    bootstrapCSS: false, // Or `css: false`
+    bootstrapVueCSS: true, // Or `bvCSS: false`
+    icons: false,
+  },
 
   axios: {
-    baseURL: process.env.BASE_API_URL || 'https://kkl.dedeard.my.id',
+    baseURL: process.env.BASE_API_URL || 'http://localhost:5000',
   },
 
   build: {},

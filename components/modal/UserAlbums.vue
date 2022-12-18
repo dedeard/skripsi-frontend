@@ -10,10 +10,12 @@
       :id="'modal-user-albums-' + uid"
       title="User Albums"
       size="lg"
+      body-class="p-0"
       no-close-on-backdrop
     >
       <div>
         <b-table
+          class="m-0"
           striped
           :fields="[
             { key: 'id', label: 'ID' },
@@ -29,6 +31,7 @@
           </template>
         </b-table>
         <b-table
+          class="m-0"
           striped
           :fields="[
             { key: 'id', label: 'ID' },

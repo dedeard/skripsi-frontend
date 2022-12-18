@@ -1,6 +1,6 @@
 <template>
   <div class="p-3">
-    <div class="card">
+    <div class="card shadow-sm">
       <div class="card-header d-flex">
         <div class="my-auto">Users</div>
         <modal-create-user
@@ -17,7 +17,7 @@
           { key: 'name', label: 'Nama' },
           { key: 'email', label: 'Email' },
           { key: 'role.name', label: 'Peran' },
-          { key: 'action', label: 'Aksi', class: 'text-center width-200' },
+          { key: 'action', label: 'Aksi', class: 'text-center width-220' },
         ]"
         :items="users"
       >

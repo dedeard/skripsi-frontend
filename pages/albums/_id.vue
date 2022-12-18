@@ -1,7 +1,7 @@
 <template>
   <div class="p-3">
-    <div class="card">
-      <b-nav tabs class="px-3 pt-3 bg-light">
+    <div class="card shadow-sm">
+      <b-nav tabs class="px-3 pt-3 small">
         <b-nav-item exact-active-class="active" :to="`/albums/${album.id}`"
           >Media</b-nav-item
         >

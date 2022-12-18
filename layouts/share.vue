@@ -1,5 +1,5 @@
 <template>
-  <main class="bg-light">
+  <main class="bg-secondary">
     <header class="bg-white shadow-sm">
       <div class="container py-3">
         <nuxt-link to="/" class="text-center d-block text-dark">

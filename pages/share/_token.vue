@@ -1,6 +1,6 @@
 <template>
   <b-container class="py-3">
-    <b-card no-body>
+    <b-card no-body class="shadow-sm">
       <div class="card-body">
         <h3 class="text-capitalize">{{ album.name }}</h3>
         <p class="m-0 lead">{{ album.description }}</p>

@@ -12,7 +12,7 @@
       :fields="[
         { key: 'title', label: 'Judul' },
         { key: 'expiredAt', label: 'Kadaluarsa pada' },
-        { key: 'action', label: 'Aksi', class: 'text-center width-230' },
+        { key: 'action', label: 'Aksi', class: 'text-center width-250' },
       ]"
       :items="album.share"
     >
@@ -27,15 +27,24 @@
         </span>
       </template>
       <template #cell(action)="{ item }">
-        <b-button variant="primary" size="sm" :to="`/share/${item.token}`"
+        <b-button
+          variant="primary"
+          class="m-0"
+          size="sm"
+          :to="`/share/${item.token}`"
           >Open</b-button
         >
-        <b-button variant="primary" size="sm" @click.prevent="copy(item.token)"
+        <b-button
+          variant="primary"
+          class="m-0"
+          size="sm"
+          @click.prevent="copy(item.token)"
           >Copy Link</b-button
         >
         <b-button
           v-if="$can('Delete Share')"
           variant="danger"
+          class="m-0"
           size="sm"
           @click.prevent="deleteShare(item.id)"
           >Hapus</b-button

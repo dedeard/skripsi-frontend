@@ -2,7 +2,7 @@
   <b-container fluid class="py-3">
     <b-row>
       <b-col md="4" class="mb-4">
-        <b-card>
+        <b-card class="shadow-sm">
           <div class="text-center">
             <span class="display-4 d-block">{{ counter.image }}</span>
             <span class="d-block">TOTAL GAMBAR</span>
@@ -10,7 +10,7 @@
         </b-card>
       </b-col>
       <b-col md="4" class="mb-4">
-        <b-card>
+        <b-card class="shadow-sm">
           <div class="text-center">
             <span class="display-4 d-block">{{ counter.video }}</span>
             <span class="d-block">TOTAL VIDEO</span>
@@ -18,7 +18,7 @@
         </b-card>
       </b-col>
       <b-col md="4" class="mb-4">
-        <b-card>
+        <b-card class="shadow-sm">
           <div class="text-center">
             <span class="display-4 d-block">{{ counter.album }}</span>
             <span class="d-block">TOTAL ALBUM</span>
@@ -26,7 +26,7 @@
         </b-card>
       </b-col>
       <b-col md="6" class="mb-4">
-        <b-card>
+        <b-card class="shadow-sm">
           <div class="text-center">
             <span class="display-4 d-block">{{
               prettyBytes(counter.used)
@@ -36,7 +36,7 @@
         </b-card>
       </b-col>
       <b-col md="6" class="mb-4">
-        <b-card>
+        <b-card class="shadow-sm">
           <div class="text-center">
             <span class="display-4 d-block">{{
               prettyBytes(counter.free)
@@ -46,7 +46,12 @@
         </b-card>
       </b-col>
     </b-row>
-    <b-card v-if="$can('Read Album')" header="Akses cepat album" no-body>
+    <b-card
+      v-if="$can('Read Album')"
+      header="Akses cepat album"
+      no-body
+      class="shadow-sm"
+    >
       <block-album-table :albums="albums" />
     </b-card>
   </b-container>

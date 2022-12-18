@@ -1,6 +1,6 @@
 <template>
   <div class="p-3">
-    <div class="card">
+    <div class="card shadow-sm">
       <div class="card-header d-flex">
         <div class="my-auto">Peran</div>
         <modal-create-role
@@ -16,7 +16,7 @@
           { key: 'id', label: 'ID' },
           { key: 'name', label: 'Nama' },
           { key: 'permissions', label: 'Izin' },
-          { key: 'action', label: 'Aksi', class: 'text-center width-140' },
+          { key: 'action', label: 'Aksi', class: 'text-center width-150' },
         ]"
         :items="roles"
       >

@@ -10,7 +10,7 @@
         { key: 'type', label: 'Jenis' },
         { key: 'size', label: 'Ukuran' },
         { key: 'originalName', label: 'Nama' },
-        { key: 'action', label: 'Aksi', class: 'text-center width-140' },
+        { key: 'action', label: 'Aksi', class: 'text-center width-170' },
       ]"
       :items="album.media"
     >

@@ -1,6 +1,6 @@
 <template>
   <div class="p-3">
-    <div class="card">
+    <div class="card shadow-sm">
       <div class="card-header d-flex">
         <div class="my-auto">Daftar Album</div>
       </div>
