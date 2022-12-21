@@ -3,8 +3,8 @@ export default {
   target: 'static',
 
   publicRuntimeConfig: {
-    baseApiUrl: process.env.BASE_API_URL || 'http://localhost:5000',
-    baseUrl: process.env.BASE_URL || 'http://localhost:3000',
+    baseApiUrl: process.env.BASE_API_URL || 'https://kkl.dedeard.my.id',
+    baseUrl: process.env.BASE_URL || 'https://skripsi.dedeard.my.id',
   },
 
   head: {
@@ -49,7 +49,7 @@ export default {
     'nuxt-client-init-module',
     'nuxt-route-meta',
   ],
-  
+
   bootstrapVue: {
     bootstrapCSS: false, // Or `css: false`
     bootstrapVueCSS: true, // Or `bvCSS: false`
@@ -57,7 +57,7 @@ export default {
   },
 
   axios: {
-    baseURL: process.env.BASE_API_URL || 'http://localhost:5000',
+    baseURL: process.env.BASE_API_URL || 'https://kkl.dedeard.my.id',
   },
 
   build: {},
