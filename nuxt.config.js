@@ -5,6 +5,8 @@ export default {
   publicRuntimeConfig: {
     baseApiUrl: process.env.BASE_API_URL || 'https://kkl.dedeard.my.id',
     baseUrl: process.env.BASE_URL || 'https://skripsi.dedeard.my.id',
+    onlyLogin: true,
+    appShare: false,
   },
 
   head: {

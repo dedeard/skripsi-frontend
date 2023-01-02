@@ -5,7 +5,10 @@
         <b-nav-item exact-active-class="active" :to="`/albums/${album.id}`"
           >Media</b-nav-item
         >
-        <b-nav-item active-class="active" :to="`/albums/${album.id}/share`"
+        <b-nav-item
+          v-if="$config.appShare"
+          active-class="active"
+          :to="`/albums/${album.id}/share`"
           >Share</b-nav-item
         >
         <b-nav-item v-if="$can('Delete Album')" @click="destroy()"

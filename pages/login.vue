@@ -32,9 +32,11 @@
       <b-button type="submit" variant="primary" block :disabled="loading">
         <b-spinner small v-if="loading" /> Masuk
       </b-button>
-      <b-button to="/register" variant="light" block> Register </b-button>
-      <hr />
-      <div class="text-center">
+      <b-button v-if="!$config.onlyLogin" to="/register" variant="light" block>
+        Register
+      </b-button>
+      <hr v-if="!$config.onlyLogin" />
+      <div v-if="!$config.onlyLogin" class="text-center">
         <b-button to="/password/forgot" variant="link">
           Lupa password?
         </b-button>
