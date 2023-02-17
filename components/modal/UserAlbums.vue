@@ -19,7 +19,7 @@
           striped
           :fields="[
             { key: 'id', label: 'ID' },
-            { key: 'name', label: 'Nama' },
+            { key: 'name', label: 'Nama Album' },
             { key: 'action', label: 'Aksi', class: 'text-center width-80' },
           ]"
           :items="albums.filter((el) => !userAlbums.includes(el.id))"
@@ -35,7 +35,7 @@
           striped
           :fields="[
             { key: 'id', label: 'ID' },
-            { key: 'name', label: 'Nama' },
+            { key: 'name', label: 'Nama Album' },
             { key: 'action', label: 'Aksi', class: 'text-center width-80' },
           ]"
           :items="albums.filter((el) => userAlbums.includes(el.id))"
@@ -80,7 +80,10 @@ export default {
     async give(id) {
       try {
         await this.$axios.$post(`/users/${this.uid}/${id}`)
-        this.$emit('onUpdated', { id: this.uid, albums: [...this.albums, id] })
+        this.$emit('onUpdated', {
+          id: this.uid,
+          albums: [...this.userAlbums, id],
+        })
       } catch (e) {
         this.$sw('Give failed', this.$errorMessage(e))
       }
@@ -90,7 +93,7 @@ export default {
         await this.$axios.$delete(`/users/${this.uid}/${id}`)
         this.$emit('onUpdated', {
           id: this.uid,
-          albums: [...this.albums].filter((el) => el.id !== id),
+          albums: [...this.userAlbums.filter((el) => el !== id)],
         })
       } catch (e) {
         this.$sw('Remove failed', this.$errorMessage(e))

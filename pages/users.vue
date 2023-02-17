@@ -95,7 +95,11 @@ export default {
     },
     onUserAlbumsUpdated({ id, albums }) {
       const users = [...this.users]
-      this.users = users.map((el) => (el.id === id ? { ...el, albums } : el))
+      const user = users.find((el) => el.id === id)
+      if (user) {
+        const updatedUser = { ...user, albums }
+        this.users = [...users.map((el) => (el.id === id ? updatedUser : el))]
+      }
     },
   },
 }

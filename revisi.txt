@@ -1,0 +1,2 @@
+1. manajement state pada saat set dan remove album user
+2. pergaiki halaman user album
