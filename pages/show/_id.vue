@@ -3,7 +3,17 @@
     <b-card no-body class="shadow-sm">
       <div class="card-body">
         <h3 class="text-capitalize">{{ album.name }}</h3>
-        <p class="m-0 lead">{{ album.description }}</p>
+        <p class="m-0 lead">
+          {{ description }}
+          <a
+            href="#"
+            v-if="Number(album.description?.length) > 300"
+            @click.prevent="truncate = !truncate"
+            variant="primary"
+          >
+            Show {{ truncate ? 'more' : 'less' }}
+          </a>
+        </p>
       </div>
       <b-table
         striped
@@ -45,7 +55,16 @@ export default {
     return {
       album,
       id: params.id,
+      truncate: true,
     }
+  },
+  computed: {
+    description() {
+      if (this.truncate && Number(this.album.description?.length) > 300) {
+        return this.album.description.substring(0, 300) + '...'
+      }
+      return this.album.description
+    },
   },
   methods: {
     prettyBytes(b) {
