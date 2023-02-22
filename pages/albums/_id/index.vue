@@ -4,6 +4,8 @@
     <hr />
     <block-media-uploader :target="album.id" @mediaUpdated="onMediaUpdated" />
     <b-table
+      :per-page="perPage"
+      :current-page="currentPage"
       striped
       hover
       :fields="[
@@ -32,6 +34,14 @@
         >
       </template>
     </b-table>
+    <div class="p-3">
+      <b-pagination
+        v-model="currentPage"
+        :total-rows="album.media.length"
+        :per-page="perPage"
+        align="center"
+      ></b-pagination>
+    </div>
   </div>
 </template>
 
@@ -47,6 +57,12 @@ export default {
   head() {
     return {
       title: 'Album - ' + this.album.name,
+    }
+  },
+  data() {
+    return {
+      perPage: 10,
+      currentPage: 1,
     }
   },
   methods: {

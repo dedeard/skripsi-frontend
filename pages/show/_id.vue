@@ -4,7 +4,7 @@
       <div class="card-body">
         <h3 class="text-capitalize">{{ album.name }}</h3>
         <p class="m-0 lead">
-          {{ description }}
+          <span v-html="description.replaceAll('\n', '<br />')"></span>
           <a
             href="#"
             v-if="Number(album.description?.length) > 300"
@@ -16,6 +16,8 @@
         </p>
       </div>
       <b-table
+        :per-page="perPage"
+        :current-page="currentPage"
         striped
         :fields="[
           { key: 'type', label: 'Jenis' },
@@ -36,6 +38,14 @@
           />
         </template>
       </b-table>
+      <div class="p-3">
+        <b-pagination
+          v-model="currentPage"
+          :total-rows="album.media.length"
+          :per-page="perPage"
+          align="center"
+        ></b-pagination>
+      </div>
     </b-card>
   </b-container>
 </template>
@@ -55,6 +65,8 @@ export default {
     return {
       album,
       id: params.id,
+      perPage: 10,
+      currentPage: 1,
       truncate: true,
     }
   },

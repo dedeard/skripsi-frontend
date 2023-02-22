@@ -1,5 +1,5 @@
 <template>
-  <b-card header="Login" class="shadow-sm">
+  <b-card class="shadow-sm">
     <b-form @submit.prevent="submit">
       <b-alert variant="danger" :show="!!danger">{{ danger }}</b-alert>
       <b-form-group
