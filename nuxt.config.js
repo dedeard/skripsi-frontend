@@ -3,8 +3,8 @@ export default {
   target: 'static',
 
   publicRuntimeConfig: {
-    baseApiUrl: process.env.BASE_API_URL || 'https://kkl.dedeard.my.id',
-    baseUrl: process.env.BASE_URL || 'https://skripsi.dedeard.my.id',
+    baseApiUrl: process.env.BASE_API_URL || 'https://api.dedeard.my.id',
+    baseUrl: process.env.BASE_URL || 'https://dinkes.netlify.app',
     onlyLogin: true,
     appShare: false,
   },
