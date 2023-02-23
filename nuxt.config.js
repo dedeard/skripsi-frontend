@@ -62,7 +62,7 @@ export default {
   },
 
   axios: {
-    baseURL: process.env.BASE_API_URL || 'https://kkl.dedeard.my.id',
+    baseURL: process.env.BASE_API_URL || 'https://api.dedeard.my.id',
   },
 
   build: {},
