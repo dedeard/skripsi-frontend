@@ -1,6 +1,6 @@
 <template>
   <b-table striped :fields="fields" :items="albums">
-    <template #cell(id)="{ index }">
+    <template #cell(no)="{ index }">
       {{ Number(index) + 1 }}
     </template>
     <template #cell(imageCount)="{ item }">
@@ -34,7 +34,7 @@ export default {
   data() {
     return {
       fields: [
-        { key: 'id', label: 'ID' },
+        { key: 'no', label: 'No' },
         { key: 'name', label: 'Nama' },
         { key: 'imageCount', label: 'Total Gambar' },
         { key: 'videoCount', label: 'Total Video' },

@@ -13,13 +13,16 @@
       <b-table
         striped
         :fields="[
-          { key: 'id', label: 'ID' },
+          { key: 'no', label: 'No' },
           { key: 'name', label: 'Nama' },
           { key: 'permissions', label: 'Izin' },
           { key: 'action', label: 'Aksi', class: 'text-center width-150' },
         ]"
         :items="roles"
       >
+        <template #cell(no)="{ index }">
+          {{ Number(index) + 1 }}
+        </template>
         <template #cell(permissions)="{ item }">
           {{ item.permissions.join(', ') }}
         </template>
