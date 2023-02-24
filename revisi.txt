@@ -1,2 +1,22 @@
 1. manajement state pada saat set dan remove album user
 2. pergaiki halaman user album
+
+Dear Hiring Manager,
+
+
+My name is [Your Name] and I am interested in the remote programming job you have posted. With my knowledge of web programming technologies such as HTML, CSS, JavaScript and ReactJS, I believe I am the ideal candidate for the role.
+
+
+I have a proven track record of success in developing user-friendly web applications and deploying them successfully. My past work experience includes creating custom solutions to streamline processes, improving user experience and solving complex problems with well-crafted implementations on production websites.
+
+
+I am confident that my skillset and experience make me the perfect candidate for this position. If selected, I guarantee that I will be highly motivated, reliable and dedicated to the project at hand.
+
+
+Thank you for your attention. I look forward to discussing this opportunity with you further.
+
+
+Sincerely,
+
+
+
