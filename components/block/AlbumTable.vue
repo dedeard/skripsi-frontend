@@ -1,5 +1,8 @@
 <template>
   <b-table striped :fields="fields" :items="albums">
+    <template #cell(id)="{ item }">
+      {{ item.index }}
+    </template>
     <template #cell(imageCount)="{ item }">
       {{ item.media.filter((el) => el.type === 'image').length }}
     </template>
