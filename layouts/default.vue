@@ -47,7 +47,7 @@
               to="/dashboard"
               active-class="active"
               class="font-weight-bold pr-0"
-              >Dasbor</b-nav-item
+              >Dashboard</b-nav-item
             >
             <b-nav-item
               v-if="$can('Read Role|Create Role|Update Role|Delete Role')"
