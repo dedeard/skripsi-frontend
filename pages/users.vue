@@ -6,6 +6,7 @@
         <modal-create-user
           v-if="$can('Create User')"
           class="my-auto ml-auto"
+          :fields="fields"
           :roles="roles.filter((el) => el.name !== 'Super Admin')"
           @onCreated="onUserCreated"
         />
@@ -17,6 +18,7 @@
           { key: 'name', label: 'Nama' },
           { key: 'email', label: 'Email' },
           { key: 'role.name', label: 'Peran' },
+          { key: 'field.name', label: 'Bagian' },
           { key: 'action', label: 'Aksi', class: 'text-center width-220' },
         ]"
         :items="users"
@@ -31,17 +33,10 @@
           <modal-edit-user
             v-if="$can('Update User')"
             class="d-inline-block"
+            :fields="fields"
             :roles="roles.filter((el) => el.name !== 'Super Admin')"
             :user="item"
             @onUpdated="onUserUpdated"
-          />
-          <modal-user-albums
-            v-if="$can('Manage User Album')"
-            class="d-inline-block"
-            :uid="item.id"
-            :albums="albums"
-            :userAlbums="item.albums"
-            @onUpdated="onUserAlbumsUpdated"
           />
           <b-button
             v-if="$can('Delete User')"
@@ -71,11 +66,11 @@ export default {
   async asyncData({ $axios }) {
     const users = await $axios.$get('/users')
     const roles = await $axios.$get('/roles')
-    const albums = await $axios.$get('/albums')
+    const fields = await $axios.$get('/fields')
     return {
       roles,
       users,
-      albums,
+      fields,
     }
   },
   methods: {
@@ -95,14 +90,6 @@ export default {
     onUserUpdated(user) {
       const users = [...this.users]
       this.users = users.map((el) => (el.id === user.id ? user : el))
-    },
-    onUserAlbumsUpdated({ id, albums }) {
-      const users = [...this.users]
-      const user = users.find((el) => el.id === id)
-      if (user) {
-        const updatedUser = { ...user, albums }
-        this.users = [...users.map((el) => (el.id === id ? updatedUser : el))]
-      }
     },
   },
 }

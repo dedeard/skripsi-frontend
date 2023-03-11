@@ -36,6 +36,7 @@ export default {
       fields: [
         { key: 'no', label: 'No' },
         { key: 'name', label: 'Nama' },
+        { key: 'field.name', label: 'Bagian' },
         { key: 'imageCount', label: 'Total Gambar' },
         { key: 'videoCount', label: 'Total Video' },
         { key: 'createdAt', label: 'Dibuat' },

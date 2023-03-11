@@ -60,6 +60,20 @@
             :state="errors?.roleId ? false : null"
           />
         </b-form-group>
+        <b-form-group
+          label="Bagian:"
+          label-for="field"
+          :invalid-feedback="errors?.fieldId"
+        >
+          <b-form-select
+            id="field"
+            v-model="form.fieldId"
+            :options="[
+              ...fields.map((el) => ({ value: el.id, text: el.name })),
+            ]"
+            :state="errors?.fieldId ? false : null"
+          />
+        </b-form-group>
       </div>
       <template #modal-footer="{ cancel }">
         <b-button variant="primary" :disabled="loading" @click="submit()"
@@ -79,6 +93,10 @@ export default {
       type: Array,
       default: () => [],
     },
+    fields: {
+      type: Array,
+      default: () => [],
+    },
   },
   data() {
     return {
@@ -90,6 +108,7 @@ export default {
         email: '',
         password: '',
         roleId: '',
+        fieldId: '',
       },
     }
   },
@@ -98,12 +117,15 @@ export default {
       this.loading = true
       this.errors = null
       try {
-        const role = await this.$axios.$post('/users', this.form)
-        this.$emit('onCreated', role)
+        const user = await this.$axios.$post('/users', this.form)
+        this.$emit('onCreated', user)
         this.$bvModal.hide('modal-create-user')
         this.form = {
           name: '',
-          permissions: [],
+          email: '',
+          password: '',
+          roleId: '',
+          fieldId: '',
         }
         this.$bvToast.toast(`Berhasil membuat user baru.`, {
           variant: 'success',

@@ -63,6 +63,20 @@
             :state="errors?.roleId ? false : null"
           />
         </b-form-group>
+        <b-form-group
+          label="Bagian:"
+          label-for="field"
+          :invalid-feedback="errors?.fieldId"
+        >
+          <b-form-select
+            id="field"
+            v-model="form.fieldId"
+            :options="[
+              ...fields.map((el) => ({ value: el.id, text: el.name })),
+            ]"
+            :state="errors?.fieldId ? false : null"
+          />
+        </b-form-group>
       </div>
       <template #modal-footer="{ cancel }">
         <b-button variant="primary" :disabled="loading" @click="submit()"
@@ -82,6 +96,10 @@ export default {
       type: Array,
       default: () => [],
     },
+    fields: {
+      type: Array,
+      default: () => [],
+    },
     user: {
       type: Object,
       default: () => ({}),
@@ -97,6 +115,7 @@ export default {
         email: '',
         password: '',
         roleId: '',
+        fieldId: '',
       },
     }
   },
@@ -104,6 +123,7 @@ export default {
     this.form.name = this.user.name || ''
     this.form.email = this.user.email || ''
     this.form.roleId = this.user.roleId || null
+    this.form.fieldId = this.user.fieldId || null
   },
   methods: {
     async submit() {
@@ -117,6 +137,7 @@ export default {
           name: user.name,
           email: user.email,
           roleId: user.roleId,
+          fieldId: user.fieldId,
         }
         this.$bvToast.toast(`Berhasil memperbarui user.`, {
           variant: 'success',

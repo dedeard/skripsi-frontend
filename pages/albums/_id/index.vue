@@ -1,6 +1,6 @@
 <template>
   <div>
-    <block-album-info :album="album" @albumUpdated="onAlbumUpdated" />
+    <block-album-info :album="album" :fields="fields" @albumUpdated="onAlbumUpdated" />
     <hr />
     <block-media-uploader :target="album.id" @mediaUpdated="onMediaUpdated" />
     <b-table
@@ -52,6 +52,10 @@ export default {
     album: {
       type: Object,
       default: () => ({}),
+    },
+    fields: {
+      type: Array,
+      default: () => [],
     },
   },
   head() {

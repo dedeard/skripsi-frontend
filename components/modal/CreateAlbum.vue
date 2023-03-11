@@ -24,6 +24,18 @@
           />
         </b-form-group>
         <b-form-group
+          label="Bagian:"
+          label-for="field"
+          :invalid-feedback="errors?.fieldId"
+        >
+          <b-form-select
+            id="field"
+            v-model="form.fieldId"
+            :options="[...fields.map((el) => ({ value: el.id, text: el.name }))]"
+            :state="errors?.fieldId ? false : null"
+          />
+        </b-form-group>
+        <b-form-group
           label="Deskripsi:"
           label-for="description"
           :invalid-feedback="errors?.description"
@@ -49,6 +61,12 @@
 <script>
 export default {
   name: 'ModalCreateAlbum',
+  props: {
+    fields: {
+      type: Array,
+      default: () => [],
+    },
+  },
   data() {
     return {
       loading: false,
@@ -56,6 +74,7 @@ export default {
       danger: '',
       form: {
         name: '',
+        fieldId: '',
         description: '',
       },
     }

@@ -14,6 +14,18 @@
       />
     </b-form-group>
     <b-form-group
+      label="Bagian:"
+      label-for="field"
+      :invalid-feedback="errors?.fieldId"
+    >
+      <b-form-select
+        id="field"
+        v-model="form.fieldId"
+        :options="[...fields.map((el) => ({ value: el.id, text: el.name }))]"
+        :state="errors?.fieldId ? false : null"
+      />
+    </b-form-group>
+    <b-form-group
       label="Deskripsi:"
       label-for="description"
       :invalid-feedback="errors?.description"
@@ -26,7 +38,11 @@
       />
     </b-form-group>
     <b-button
-      v-if="album.name !== form.name || album.description !== form.description"
+      v-if="
+        album.name !== form.name ||
+        album.fieldId !== form.fieldId ||
+        album.description !== form.description
+      "
       variant="primary"
       :disabled="loading"
       @click="submit()"
@@ -43,6 +59,10 @@ export default {
       type: Object,
       default: () => ({}),
     },
+    fields: {
+      type: Array,
+      default: () => [],
+    },
   },
   data() {
     return {
@@ -52,11 +72,13 @@ export default {
       form: {
         name: '',
         description: '',
+        fieldId: '',
       },
     }
   },
   mounted() {
     this.form.name = this.album?.name || ''
+    this.form.fieldId = this.album?.fieldId || ''
     this.form.description = this.album?.description || ''
   },
   methods: {
@@ -71,6 +93,7 @@ export default {
         this.$emit('albumUpdated', album)
         this.form = {
           name: album.name,
+          fieldId: album.fieldId,
           description: album.description,
         }
         this.$bvToast.toast(`Album berhasil diperbarui.`, {

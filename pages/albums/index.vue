@@ -5,6 +5,7 @@
         <div class="my-auto">Daftar Album</div>
         <modal-create-album
           v-if="$can('Create Album')"
+          :fields="fields"
           class="my-auto ml-auto"
           @onCreated="onAlbumCreated"
         />
@@ -25,8 +26,10 @@ export default {
   },
   async asyncData({ $axios }) {
     const albums = await $axios.$get('/albums')
+    const fields = await $axios.$get('/fields')
     return {
       albums,
+      fields
     }
   },
   methods: {

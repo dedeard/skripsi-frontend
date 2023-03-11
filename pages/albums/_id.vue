@@ -18,6 +18,7 @@
       <div class="card-body">
         <nuxt-child
           :album="album"
+          :fields="fields"
           @mediaUpdated="onMediaUpdated"
           @albumUpdated="onAlbumUpdated"
           @shareCreated="onShareCreated"
@@ -35,8 +36,10 @@ export default {
   async asyncData({ $axios, params }) {
     const { id } = params
     const album = await $axios.$get('/albums/' + id)
+    const fields = await $axios.$get('/fields')
     return {
       album,
+      fields
     }
   },
   methods: {
