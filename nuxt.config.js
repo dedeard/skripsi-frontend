@@ -3,7 +3,7 @@ export default {
   target: 'static',
 
   publicRuntimeConfig: {
-    baseApiUrl: process.env.BASE_API_URL || 'https://api.dedeard.my.id',
+    baseApiUrl: process.env.BASE_API_URL || 'https://api.cirsqu.cloud',
     baseUrl: process.env.BASE_URL || 'https://dinkes.netlify.app',
     onlyLogin: true,
     appShare: false,
@@ -62,7 +62,7 @@ export default {
   },
 
   axios: {
-    baseURL: process.env.BASE_API_URL || 'https://api.dedeard.my.id',
+    baseURL: process.env.BASE_API_URL || 'https://api.cirsqu.cloud',
   },
 
   build: {},
